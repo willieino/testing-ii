@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import Display from './components/display';
-import Dashboard from './components/dashboard';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -16,9 +13,7 @@ class App extends Component {
   }
 
   ballCounter = () => {
-    //if balls is less than 4 then add 1
     let balls = this.state.balls;
-    console.log("balls:", balls);
     if (balls < 3) {
       balls = balls + 1;
       this.setState(() => ({ balls: balls }));
@@ -28,13 +23,9 @@ class App extends Component {
       this.setState(() => ({ balls: balls, strikes: strikes }));
     }
 
-
-    // else set balls to 0 and strikes to 0
-
   }
 
   strikeCounter = () => {
-    //if strikes is less than 2 then add 1
     let strikes = this.state.strikes;
     console.log("strikes:", strikes);
     if (strikes < 2) {
@@ -55,14 +46,6 @@ class App extends Component {
         this.setState(() => ({ balls: balls, strikes: strikes, outs: outs }));
       }
     }
-
-  
-
-  // else set balls and strikes to 0 add 1 to outs
-  //if outs are is less than 2 then add 1
-
-  //else set everything to 0
-
 }
 
 outCounter = () => {
@@ -76,10 +59,33 @@ render() {
       <header className="App-header">Testing II - Baseball
           </header>
       <div className="display-container">
-        <Display balls={this.state.balls} strikes={this.state.strikes} outs={this.state.outs} />
+      <div className="display">
+                <div className="ball-container">
+                    <div className="balls" data-testid="balls">{this.state.balls}</div>
+                    <div className="balls-text">Balls</div>
+                </div>
+                <div className="strikes-container">
+                    <div className="strikes" data-testid="strikes">{this.state.strikes}</div>
+                    <div className="strikes-text">Strikes</div>
+                </div>
+                <div className="outs-container">
+                    <div className="outs">{this.state.outs}</div>
+                    <div className="outs-text">Outs</div>
+                </div>
+            </div>
       </div>
       <div className="dashboard-container">
-        <Dashboard ballCounter={this.ballCounter} strikeCounter={this.strikeCounter} outCounter={this.outCounter} />
+      <div className="dashboard">
+                <div className="ball-button-container">
+                    <button data-testid="ballcounter" className="ball-button" onClick={this.ballCounter}>Balls</button>
+                </div>
+                <div className="strikes-button-container">
+                    <button  data-testid="strikecounter" className="strikes-button" onClick={this.strikeCounter}>Strikes</button>
+                </div>
+                <div className="outs-button-container">
+                    <button className="outs-button" onClick={this.outCounter}>Outs</button>
+                </div>
+            </div> 
       </div>
     </div>
   );
@@ -87,3 +93,4 @@ render() {
 };
 
 export default App;
+

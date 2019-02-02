@@ -17,7 +17,7 @@ class Display extends Component {
         return (
             <div className="display">
                 <div className="ball-container">
-                    <div className="balls">{this.props.balls}</div>
+                    <div className="balls" data-testid="balls">{this.props.balls}</div>
                     <div className="balls-text">Balls</div>
                 </div>
                 <div className="strikes-container">

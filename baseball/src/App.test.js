@@ -3,11 +3,6 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { render, fireEvent } from 'react-testing-library';
 import 'jest-dom/extend-expect';
-import Display from './components/display';
-import Dashboard from './components/dashboard';
-//import App from './App';
-//import Items from './items';
-
 
 describe('renders the app without crashing', () => {
   it('renders without crashing', () => {
@@ -18,30 +13,66 @@ describe('renders the app without crashing', () => {
 
 })
 
-describe('the Display componment', () => {
-  test('renders the display component', () => {
-      render(<Display />);
-  });
-  
-  test('renders the dashboard component', () => {
-    render(<Dashboard />);
+describe('the Button components', () => {
+  test('the ball button increases ball number', () => {
+    const component = render(<App />);
+    const button = component.getByTestId('ballcounter');
+    fireEvent.click(button);
+    const balls = component.getByTestId('balls')
+    expect(balls).toHaveTextContent('1');
   })
-  
-  /* test('displays the title', () => {
-  const component = render(<Items />);
-  const title = component.getByTestId('title');
-  expect(title).toHaveTextContent(/Items/i);
-  const item = component.getByTestId('item');
-  //expect(score).toHaveTextContent('4');
-  expect(item).toHaveTextContent('longsword');
-  }) */
-  
- /*  test('enhancement button increases score', () => {
-      const component = render(<Items />);
-      const button = component.getByText(/enhance/i);
-      fireEvent.click(button);
-  
-      const score = component.getByTestId('enhancement')
-      expect(score).toHaveTextContent('5');
-  }) */
-  });
+
+  test('the strike button increases strike number', () => {
+    const component = render(<App />);
+    const button = component.getByTestId('strikecounter');
+    fireEvent.click(button);
+    const strikes = component.getByTestId('strikes')
+    expect(strikes).toHaveTextContent('1');
+  })
+
+  test('the strike number resets after 3 strikes', () => {
+    const component = render(<App />);
+    const button = component.getByTestId('strikecounter');
+    fireEvent.click(button);
+    fireEvent.click(button);
+    const strikes = component.getByTestId('strikes')
+    expect(strikes).toHaveTextContent('0');
+  })
+
+  test('the ball number resets after 4 balls', () => {
+    const component = render(<App />);
+    const button = component.getByTestId('ballcounter');
+    fireEvent.click(button);
+    fireEvent.click(button);
+    fireEvent.click(button);
+    fireEvent.click(button);
+    const balls = component.getByTestId('balls')
+    expect(balls).toHaveTextContent('0');
+  })
+
+  test('the ball number resets after 3 strikes', () => {
+    const component = render(<App />);
+    const button = component.getByTestId('ballcounter');
+    fireEvent.click(button);
+    const button2 = component.getByTestId('strikecounter');
+    fireEvent.click(button2);
+    fireEvent.click(button2);
+    fireEvent.click(button2);
+    const balls = component.getByTestId('balls')
+    expect(balls).toHaveTextContent('0');
+  })
+
+  test('the strike number resets after 4 balls', () => {
+    const component = render(<App />);
+    const button = component.getByTestId('strikecounter');
+    fireEvent.click(button);
+    const button2 = component.getByTestId('ballcounter');
+    fireEvent.click(button2);
+    fireEvent.click(button2);
+    fireEvent.click(button2);
+    fireEvent.click(button2);
+    const strikes = component.getByTestId('strikes')
+    expect(strikes).toHaveTextContent('0');
+  })
+
+});
