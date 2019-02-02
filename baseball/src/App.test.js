@@ -75,4 +75,23 @@ describe('the Button components', () => {
     expect(strikes).toHaveTextContent('0');
   })
 
+  test('the foul button resets strikes when strike counter is at 2', () => {
+    const component = render(<App />);
+    const button = component.getByTestId('strikecounter');
+    fireEvent.click(button);
+    fireEvent.click(button);
+    const button2 = component.getByTestId('foulcounter');
+    fireEvent.click(button2);
+    const strikes = component.getByTestId('strikes')
+    expect(strikes).toHaveTextContent('0');
+  })
+
+  test('the foul button advances the foul counter', () => {
+    const component = render(<App />);
+    const button = component.getByTestId('foulcounter');
+    fireEvent.click(button);
+    const fouls = component.getByTestId('fouls')
+    expect(fouls).toHaveTextContent('1');
+  })
+
 });
