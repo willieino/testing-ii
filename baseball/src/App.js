@@ -10,7 +10,14 @@ class App extends Component {
       strikes: 0,
       outs: 0,
       fouls: 0,
-      hits: 0
+      hits: 0,
+      singles: 0,
+      doubles: 0,
+      triples: 0,
+      hr: 0,
+      inning: 0,
+      home: 0,
+      visitor: 0
     }
   }
 
@@ -75,7 +82,8 @@ class App extends Component {
     let strikes = this.state.strikes;
     if (strikes < 2) {
       fouls = fouls + 1;
-      this.setState(() => ({ fouls: fouls })); 
+      strikes = strikes + 1;
+      this.setState(() => ({ fouls: fouls, strikes: strikes })); 
     } else {
       let outs = this.state.outs;
       let balls = this.state.balls;
@@ -145,6 +153,34 @@ class App extends Component {
             <div className="hits-container">
               <div className="hits" data-testid="hits">{this.state.hits}</div>
               <div className="hits-text">Hits</div>
+            </div>
+            <div className="singles-container">
+              <div className="singles" data-testid="singles">{this.state.singles}</div>
+              <div className="singles-text">Singles</div>
+            </div>
+            <div className="doubles-container">
+              <div className="doubles" data-testid="doubles">{this.state.doubles}</div>
+              <div className="doubles-text">Doubles</div>
+            </div>
+            <div className="triples-container">
+              <div className="triples" data-testid="triples">{this.state.triples}</div>
+              <div className="triples-text">Triples</div>
+            </div>
+            <div className="hr-container">
+              <div className="hr" data-testid="hr">{this.state.hr}</div>
+              <div className="hr-text">HR</div>
+            </div>
+            <div className="inning-container">
+              <div className="inning" data-testid="inning">{this.state.inning}</div>
+              <div className="inning-text">Inning</div>
+            </div>
+            <div className="home-container">
+              <div className="home" data-testid="home">{this.state.home}</div>
+              <div className="home-text">Home</div>
+            </div>
+            <div className="visitor-container">
+              <div className="visitor" data-testid="visitor">{this.state.visitor}</div>
+              <div className="visitor-text">Visitor</div>
             </div>
           </div>
         </div>

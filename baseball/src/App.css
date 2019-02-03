@@ -1,7 +1,7 @@
 .App {
     text-align: center;
     display: flex;
-    width: 420px;
+    width: 800px;
     height: 20px;
     flex-direction: column;
 }
@@ -53,7 +53,17 @@ margin-bottom: 8px;
 margin-top: 8px;
 }
 
-.balls, .strikes, .outs, .fouls, .hits {
+.singles-container, .doubles-container, .triples-container, .hr-container, .inning-container, .home-container, .visitor-container {
+    border: 2px solid white;
+    background-color: black;
+    color: white;
+    padding: 6px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+
+}
+
+.balls, .strikes, .outs, .fouls, .hits, .singles, .doubles, .triples, .hr, .inning, .visitor, .home {
 color: white;
 font-size: 24px;
 }
@@ -62,6 +72,6 @@ font-size: 24px;
   margin-left: 80px;
 }
 
-.hits-container, .hits-button-container {
+.inning-container, .hits-button-container {
   margin-right: 80px;
 }
