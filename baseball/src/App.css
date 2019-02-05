@@ -9,7 +9,7 @@
 .App-header {
     background-color: #282c34;
     height: 100px;
-    min-height: 5vh; 
+    min-height: 5vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,19 +23,19 @@
 }
 
 .display-container {
- /*    border: 2px solid red; */
+    /*    border: 2px solid red; */
     background-color: gray;
 }
 
 .dashboard-container {
-/*     border: 2px solid blue; */
+    /*     border: 2px solid blue; */
 }
 
 .dashboard {
     display: flex;
     flex-direction: row;
     background-color: darkgray;
-   /*  border: 2px solid green; */
+    /*  border: 2px solid green; */
 }
 
 .display {
@@ -44,34 +44,66 @@
     /* border: 2px solid orange; */
 }
 
-.ball-container, .strikes-container, .outs-container, .fouls-container, .hits-container {
-border: 2px solid white;
-background-color: black;
-color: white;
-padding: 6px;
-margin-bottom: 8px;
-margin-top: 8px;
-}
-
-.singles-container, .doubles-container, .triples-container, .hr-container, .inning-container, .home-container, .visitor-container {
+.ball-container,
+.strikes-container,
+.outs-container,
+.fouls-container,
+.hits-container {
     border: 2px solid white;
     background-color: black;
     color: white;
     padding: 6px;
     margin-bottom: 8px;
     margin-top: 8px;
-
 }
 
-.balls, .strikes, .outs, .fouls, .hits, .singles, .doubles, .triples, .hr, .inning, .visitor, .home {
-color: white;
-font-size: 24px;
+.top-container {
+    border: 2px solid white;
+    background-color: black;
+    color: white;
+    padding: 6px;
+    margin-bottom: 8px;
+    margin-top: 8px;  
+    margin-right: 20px;
 }
 
-.ball-container, .ball-button-container {
-  margin-left: 80px;
+.singles-container,
+.doubles-container,
+.triples-container,
+.hr-container,
+.inning-container,
+.home-container,
+.visitor-container {
+    border: 2px solid white;
+    background-color: black;
+    color: white;
+    padding: 6px;
+    margin-bottom: 8px;
+    margin-top: 8px;
 }
 
-.inning-container, .hits-button-container {
-  margin-right: 80px;
+.balls,
+.strikes,
+.outs,
+.fouls,
+.hits,
+.singles,
+.doubles,
+.triples,
+.hr,
+.inning,
+.visitor,
+.home {
+    color: white;
+    font-size: 24px;
+}
+
+.ball-container,
+.ball-button-container {
+    margin-left: 20px;
+}
+
+.inning-container,
+.hits-button-container {
+    margin-right: 20px;
 }

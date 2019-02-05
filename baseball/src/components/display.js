@@ -18,7 +18,7 @@ class Display extends Component {
     ballCounter = () => {
         let balls = this.state.balls;
         if (balls < 3) {
-          balls = balls + 1;
+          balls++;
           this.setState(() => ({ balls: balls }));
         } else {
           balls = 0;
@@ -40,13 +40,13 @@ class Display extends Component {
       strikeCounter = () => {
         let strikes = this.state.strikes;
         if (strikes < 2) {
-          strikes = strikes + 1;
+          strikes++;
           this.setState(() => ({ strikes: strikes }));
         } else {
           let outs = this.state.outs;
           let balls = this.state.balls;
           if (outs < 2) {
-            outs = outs + 1;
+            outs++;
             strikes = 0;
             balls = 0
             let fouls = 0;
@@ -75,14 +75,14 @@ class Display extends Component {
         let fouls = this.state.fouls;
         let strikes = this.state.strikes;
         if (strikes < 2) {
-          fouls = fouls + 1;
-          strikes = strikes + 1;
+          fouls++;
+          strikes++;
           this.setState(() => ({ fouls: fouls, strikes: strikes })); 
         } else {
           let outs = this.state.outs;
           let balls = this.state.balls;
           if (outs < 2) {
-            outs = outs + 1;
+            outs++;
             strikes = 0;
             balls = 0
             fouls = 0;
