@@ -1,0 +1,12 @@
+{
+  "name": "testing-ii",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/willieino/testing-ii.git",
+  "author": "<willieino@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jest-dom": "^3.0.1",
+    "react-testing-library": "^5.4.4"
+  }
+}
